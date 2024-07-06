@@ -1,1 +1,265 @@
-<!DOCTYPE html><html><head><base target="_blank"><link rel="stylesheet" href="https://use.typekit.net/csd5gpr.css"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"><style>body{padding:0;background-color:#0f1012;color:#fff}h1{font-family:neue-haas-grotesk-display,sans-serif;font-size:32px;font-weight:600;text-align:center;margin-top:10px;margin-bottom:-14px}h3{font-family:neue-haas-grotesk-display,sans-serif;font-size:20px;font-weight:600;margin:20px;margin-bottom:-10px;color:#ff7e8b}p,tr,ul{font-family:Inter,sans-serif;font-size:17px;font-weight:300;line-height:1.4;z-index:1;margin:20px}.section{background-color:#191c20;margin:10px;border-radius:7px;padding:7px;padding-left:0;padding-right:0;filter:drop-shadow(3px 3px 4px rgba(0, 0, 0, .227));margin-bottom:20px;transition:.4s;}.section:hover{transform:scale(1.01);background-color:#232a33}.container{position:relative;width:100%;height:100%;border-radius:10px;margin-bottom:-100px;overflow:hidden}.image{width:100%;height:100%;opacity:60%;object-fit:cover}a{color:inherit;text-decoration:inherit}ul{padding-left:20px;list-style-type:disc}ul ul{padding-left:0;list-style-type:disc}li{margin-bottom:12px}</style></head><div class="container"><img src="https://i.postimg.cc/MZVxTVN3/bread-5671124-1920.png" alt="" class="image"></div><div class="section"><h1>Welcome to OVEN</h1><p>When exporting your Blender creations to other 3D programs like Unity, Unreal Engine, Godot, etc., procedural materials aren't correctly exported due to their reliance on nodes readable only by Blender. And that's where material baking becomes essential - converting these procedural textures into image textures.</p><p>OVEN addresses this by offering a complete baking system applicable to any material, regardless of its complexity and without any constraints on specific nodes. Just choose the necessary texture maps, adjust the output image textures resolution and settings, and click "Bake" for a seamless conversion.</p></div><div class="section"><h1>Additional Benefits</h1><p>Using pre-baked materials rather than procedural ones could optimize performance and reduce render times, which can be helpful, especially for architects and UPBGE users.</p></div><div class="section"><h1>Editable Properies</h1><h3>UV Settings</h3><ul><li><b>Use Existing: </b>Use an existing UV map for baking</li><li><b>Create New: </b>Create a new UV map for baking using "Smart UV Project", with customizable options</li></ul><h3>Export Settings</h3><ul><li><b>File Settings: </b><ul><li><b>Directory: </b>Exported images directory</li><li><b>Prefix: </b>Exported images name prefix</li><li><b>Format: </b>Exported images file extension (png, exr, tif ...)</li></ul></li><li><b>Image Dimensions:</b><ul><li><b>Width: </b>Exported images width (pixels)</li><li><b>Height: </b>Exported images height (pixels)</li><li><b>+1K & -1K Buttons: </b>Increase/Decrease exported images resolution by 1K</li></ul></li></ul><h3>PBR Bakes</h3><ul><li><b>Toogle Buttons: </b><ul><li><b>Diffuse: </b>Bake a color map</li><li><b>Metalness: </b>Bake a metalness map</li><li><b>Specular: </b>Bake a specular map</li><li><b>Roughness: </b>Bake a roughness map</li><li><b>Anisotropic: </b>Bake an anisotropic map</li><li><b>Sheen: </b>Bake a sheen map</li><li><b>Clearcoat: </b>Bake a clearcoat map</li><li><b>Clearcoat Roughness: </b>Bake a clearcoat roughness map</li><li><b>Transmission: </b>Bake a transmission map</li><li><b>Emission: </b>Bake an emission map</li><li><b>Alpha: </b>Bake an alpha map</li><li><b>AO: </b>Bake an ambient occlusion map</li><li><b>Normal: </b>Bake a normal map</li><li><b>Cycles: </b>Bake a combined map (cycles render)</li></ul></li></ul><h3>Bake Settings</h3><ul><li><b>Device: </b>Device used for baking (CPU, GPU)</li><li><b>Denoiser: </b>Choose between OpenImageDenoise or OptiX</li><br><li><b>Denoise Toggle: </b>Reduce noise from exported images</li><li><b>Samples: </b>Number of samples to bake each pixel</li><li><b>Time limit: </b>Maximum time for baking selected maps. Zero disables the limit</li><br><li><b>Bake Margin: </b>Extends the baked result as a post process filter (pixels)</li><li><b>Infinite extend toggle: </b>Expand the baking margins until they overlap or reach the image borders</li><li><b>Margin Mode: </b>Algorithm to extend the baked result</li><br><li><b>Cycles bake Influence: </b>Choose the type of lights that can influence the Cycles Bake</li></ul></div><div class="section" style="padding:0;overflow:hidden"><img src="https://i.postimg.cc/mkwpnH7w/Comparison.jpg" width="100%" style="display:block;margin:0"></div><a target="_parent" href="https://blendermarket.com/products/matkit"><div class="section" style=""><h1 style="color:#ffd191;font-weight:700">OVEN IS A PART OF MATKIT</h1><p><b>OVEN is just one of the 10 distinctive features designed to assist you in effortlessly creating breathtaking procedural materials. These features are combined to form MATKIT, which is available now at a low price. Click here to get yours!</b></p></div></a></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blur Effect on Hover</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            padding: 10px;
+            background-color: #f9f9fa;
+            color: #000;
+            font-family: "Inter Tight", sans-serif;
+        }
+
+        h1, h2 {
+            font-weight: 800;
+            text-align: center;
+        }
+
+        h1 {
+            color: #181818;
+            font-size: 32px;
+            margin-top: 10px;
+            margin-bottom: -14px;
+        }
+
+        h2 {
+            color: #181818;
+            font-size: 20px;
+            font-weight: 700;
+            margin: 20px 20px -15px;
+            text-align: left;
+        }
+
+        h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 10px 20px -20px;
+        }
+
+        p, tr, ul {
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 1.4;
+            z-index: 1;
+            margin: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        td, th {
+            text-align: center;
+            padding: 8px;
+            border: 2px solid #cecece;
+        }
+
+        .section {
+            background-color: #fff;
+            border-radius: 7px;
+            padding: 7px 0;
+            box-shadow: 2px 2px 6px rgba(0, 0, 0, .118);
+            margin-bottom: 22px;
+        }
+
+        .section hr {
+            border: 1px solid #e1e1e1;
+        }
+
+        .tip {
+			background-color: #fff;
+			border-color: #cecece;
+			border-width: 2px;
+			border-style: solid;
+			border-radius: 7px;
+			padding-top: 1px;
+			padding-bottom: -10px;
+			margin: 20px;
+			margin-bottom: 12px
+		}
+
+		.tip p {
+			margin-bottom: 10px
+		}
+
+        ul {
+            padding-left: 20px;
+            list-style-type: disc;
+        }
+
+        ul ul {
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 12px;
+        }
+
+        .tip hr {
+            border: 1px solid #cecece;
+            height: 0px;
+        }
+
+        .blur-container {
+			display: flex;
+			justify-content: center;
+			gap: 230px;
+			margin: 20px 0;
+			margin-left: -15px; 
+		}
+
+
+        .blurred {
+			font-size: 25px;
+            font-weight: 600;
+            filter: blur(8px); 
+            transition: filter 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+			cursor: pointer;
+    		user-select: none;
+        }
+
+        .blurred:hover {
+            filter: blur(0); 
+        }
+        
+        .vidcontainer {
+			position: relative;
+			margin: 10px 20px;
+			max-width: calc(100% - 40px);
+		}
+
+		.container {
+			position: relative;
+			margin: 0 60px; 
+			margin-bottom: -20px;
+			max-width: calc(100% - 40px); 
+			padding-bottom: 46%; 
+		}
+
+		.container img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			display: block; /* Ensure images do not have any unexpected margin or padding */
+			object-fit: contain; /* Contain the image within the container while maintaining aspect ratio */
+		}
+
+
+        .image1, .image2 {
+            transition: opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
+        }
+
+        .image2 {
+            opacity: 0;
+        }
+
+        .container:hover .image2 {
+            opacity: 1;
+        }
+
+        .container:hover .image1 {
+            opacity: 0;
+        }
+
+        .button {
+            background-color: #ef6428;
+            border: none;
+            color: white;
+            width: calc(100% - 66px);
+            padding: 15px 30px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 0px 30px 0px;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: background-color 0.2s;
+        }
+
+        .button:hover {
+            background-color: #da5213;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="section">
+        <h1>What's Baking?</h1>
+        <p>When exporting your Blender creations to other 3D programs like Unity, Unreal Engine, Godot, etc., procedural materials aren't correctly exported due to their reliance on nodes readable only by Blender. And that's where material baking becomes essential - converting these procedural textures into image textures.</p>
+        <p><b>Oven</b> addresses this by offering a complete baking system applicable to any material, regardless of its complexity and without any constraints on specific nodes. Just choose the necessary texture maps, adjust the output image textures resolution and settings, and click "Bake" for a seamless conversion.</p>
+        <div class="vidcontainer">
+            <video src="https://boreomotion.github.io/ovenwebsite/Videos/Bake.mp4" autoplay="autoplay" loop="true" width=100% muted="">
+            </video>
+        </div>
+    </div>
+
+
+    <div class="section">
+		<h1>Source to Target</h1>
+		<p style="margin: 16px 0 -10px; text-align: center; font-size: 15px; line-height: 125%;">
+			<b>Here's a fun challenge for you!</b><br>Can you guess how many faces these objects have?<br>
+			Hover your mouse over the blurred text to reveal the answer!
+		</p>
+        <div class="container">
+            <img src="https://raw.githubusercontent.com/BoreoMotion/ovenwebsite/main/Images/Real.jpg" alt="Image 1" class="image1">
+            <img src="https://raw.githubusercontent.com/BoreoMotion/ovenwebsite/main/Images/Wireframe.jpg" alt="Image 2" class="image2">
+        </div>
+        <div class="blur-container">
+            <span class="blurred">12.6K</span>
+            <span class="blurred">34</span>
+        </div>
+		<hr>
+		<p>But how is that possible, you may ask? Let me introduce you to <b>Source to Target</b> baking. This process involves transferring detailed information, such as textures, normal maps, or ambient occlusion, from a high-resolution model <b>(source)</b> to a lower-resolution model <b>(target)</b>. This technique optimizes the performance of 3D models by preserving visual details while reducing polygon count. It's especially useful for large scenes and game engines.</p>
+        <div class="vidcontainer">
+            <video src="https://boreomotion.github.io/ovenwebsite/Videos/S2T.mp4" autoplay="autoplay" loop="true" width=100% muted="">
+            </video>
+        </div>
+    </div>
+
+    <div class="section">
+        <h1>Node Baking</h1>
+        <p>Oven lets you bake the output of any shader node to an image texture, making it extremely useful for complex node setups that become performance-intensive or when certain nodes don't work in Eevee. Unlike other add-ons, Oven works even inside node groups. Additionally, it offers the option to automatically replace the selected socket after baking, connecting the newly created image texture to whatever the socket was originally linked to.</p>
+        <div class="vidcontainer">
+            <video src="https://boreomotion.github.io/ovenwebsite/Videos/Node.mp4" autoplay="autoplay" loop="true" width=100% muted="">
+            </video>
+        </div>
+    </div>
+
+    <div class="section">
+        <h1>Why Choose Oven?</h1>
+        <p>Oven is hands down the most affordable baking baking add-on out there. It gives you incredible value without sacrificing quality. The interface is super clean and easy to use, so there’s no learning curve to it. Even though it's simple to operate, Oven packs a punch with its customization options, letting you tweak every part of your baking process just the way you like it.</p>
+        <hr>
+        <h2>🎨 Customization</h2>
+        <p>Oven lets you customize every aspect of your baking process. You can select all objects you need to be baked at once, choose how Oven selects the correct UV map for each object or create new ones using Smart UV Project. You can also set the exported images' prefix, resolution, and file extension. Additionally, you have full control over the number of baking samples, baking margin, Cycles bake light influence, normal type (DirectX/OpenGL), and much more.</p>
+        <hr>
+        <h2>✅ Shader Support</h2>
+        <p>Other baking addons, including the most popular one on BlenderMarket, still lack the ability to bake materials with shader nodes other than <b>Principled BSDF</b>. However, Oven stands out by accurately baking materials with any shader nodes, ensuring that what you see is exactly what you get (or bake...)</p>
+        <!-- <img src="https://raw.githubusercontent.com/BoreoMotion/ovenwebsite/main/Images/ShaderNodes.jpg" width=100%, alt="Shader Nodes"> -->
+        <hr>
+        <h2>📦 Channel Packing</h2>
+        <p>Oven also excels in channel packing, a technique where multiple textures (such as roughness, metallic, and ambient occlusion) are combined into separate channels of a single texture map. This process optimizes memory usage and improves rendering efficiency by reducing the number of texture samples needed during rendering.</p>
+        <!-- <img src="https://raw.githubusercontent.com/BoreoMotion/ovenwebsite/main/Images/ChannelPack.jpg" width=100%, alt="Shader Nodes"> -->
+        <hr>
+        <h2>🪛 Auto-Material Fixing</h2>
+        <p>Imagine having to fix objects with no UV maps, missing materials, or empty material slots. It only gets worse when you have overly nested node groups or <b>Mix Shader</b> nodes that have LITERALLY nothing to mix with. And then there are <b>Material Output</b> nodes buried inside node groups, or materials that don't even have shader nodes at all! Oven takes care of all these frustrating issues automatically for you, so you don't have to stress about it anymore.</p>
+        
+    </div>
+
+    <div class="section">
+        <h1>Still Not Sure?</h1>
+        <p style="text-align: center;">See what our customers have to say</p>
+        <img src="https://raw.githubusercontent.com/BoreoMotion/ovenwebsite/main/Images/Ratings.jpg" width=100% alt="Image 1">
+        <center>
+            <a href="https://blendermarket.com/products/ovenbake/ratings"><button class="button">View All Ratings</button></a>
+        </center>
+    </div>
+</body>
+</html>
