@@ -107,7 +107,7 @@
         .blur-container {
 			display: flex;
 			justify-content: center;
-			gap: 265px;
+			gap: 310px;
 			margin: 20px 0;
 			margin-left: -15px; 
 		}
@@ -208,18 +208,6 @@
             pointer-events: none;
         }
 
-        .gumroad-banner::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            z-index: 3;
-            pointer-events: none;
-            opacity: 0.1;
-            mix-blend-mode: overlay;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-            background-size: 180px 180px;
-        }
-
         .g-icon {
             position: absolute;
             width: var(--size);
@@ -227,15 +215,16 @@
             left: var(--x);
             top: var(--y);
             transform: translate(-50%, -50%) rotate(var(--rot));
-            transition: transform .8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition: none;
             will-change: transform;
-            animation: g-float 7.5s ease-in-out infinite;
-            animation-delay: var(--delay);
         }
 
         .g-icon .g-icon-inner {
             width: 100%;
             height: 100%;
+            animation: g-float 7.5s ease-in-out infinite;
+            animation-delay: var(--delay);
+            will-change: transform;
         }
 
         .g-icon svg {
@@ -245,8 +234,8 @@
         }
 
         @keyframes g-float {
-            0%, 100% { margin-top: 0px; }
-            50% { margin-top: -10px; }
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
         .gumroad-text {
@@ -283,7 +272,7 @@
         }
 
         @media (prefers-reduced-motion: reduce) {
-            .g-icon { animation: none; transition: none; }
+            .g-icon, .g-icon-inner { animation: none; transition: none; }
         }
 
     </style>
@@ -310,7 +299,7 @@
                     <div class="g-icon-inner"><svg width="60" height="60" viewBox="0 0 370 370" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M334.753 127.902C333.742 120.708 330.381 114.051 325.196 108.971C320.011 103.891 313.293 100.672 306.089 99.818L296.476 98.7214L303.954 80.0791C306.359 74.0979 306.957 67.5406 305.672 61.2222C304.387 54.9039 301.276 49.103 296.727 44.5406C292.178 39.9782 286.39 36.8554 280.083 35.5603C273.777 34.2653 267.229 34.8551 261.254 37.2564L245.598 43.54C243.689 37.7772 240.225 32.6559 235.59 28.743C230.955 24.8302 225.329 22.2784 219.336 21.3702C213.342 20.4619 207.214 21.2328 201.631 23.5973C196.047 25.9618 191.226 29.8277 187.701 34.7671L174.749 52.8941C173.983 53.0476 173.216 53.2231 172.461 53.4314C171.366 53.1573 170.271 52.916 169.11 52.7296C161.961 51.5343 143.764 50.7996 129.126 69.7161C124.615 75.5281 121.363 82.031 118.484 87.7773L117.991 88.7423C109.714 87.1569 101.147 88.2635 93.5426 91.9005C85.0574 95.9909 73.9117 105.06 69.0396 125.084C66.3462 136.16 64.8462 139.34 64.5615 139.91C64.3863 140.151 63.9704 140.678 63.6529 141.084C59.5034 146.336 55.0254 152.543 49.9781 165.439C41.6899 186.626 43.0364 206.474 47.8757 220.873C46.7042 243.737 55.4743 263.049 65.0325 276.142L64.1017 315.379C63.9966 319.765 64.7684 324.128 66.3719 328.211C67.9755 332.294 70.3783 336.014 73.4388 339.153C76.4994 342.293 80.1561 344.787 84.1934 346.489C88.2308 348.192 92.5672 349.068 96.9477 349.067H187.285C195.997 349.067 204.351 345.601 210.511 339.431C216.671 333.261 220.131 324.894 220.131 316.168V270.341L231.419 238.353L231.715 238.484C235.717 240.127 240.003 240.961 244.328 240.94C248.652 240.919 252.93 240.043 256.916 238.361C260.901 236.68 264.516 234.227 267.553 231.143C270.59 228.059 272.989 224.405 274.612 220.39L281.093 221.487C287.593 222.641 294.289 221.808 300.309 219.094C306.328 216.381 311.392 211.914 314.839 206.276C318.287 200.638 319.958 194.09 319.636 187.486C319.313 180.883 317.011 174.53 313.031 169.255L309.746 164.957L314.958 162.763C321.633 159.951 327.192 155.008 330.772 148.703C334.352 142.399 335.751 135.086 334.753 127.902Z" fill="#FFC900" stroke="black" stroke-width="6" stroke-miterlimit="10"></path><path d="M206.106 158.805C206.106 158.805 211.58 146.359 218.478 149.824C227.127 154.156 221.565 167.479 221.565 167.479L187.285 264.694V316.092H97.0134L98.2505 264.08C98.2505 264.08 75.9919 244.878 81.5647 215.774C87.1376 186.67 97.0134 181.099 101.349 170.572C105.685 160.044 103.199 150.131 107.524 142.06C111.849 133.989 118.035 136.489 121.757 143.924C125.48 151.359 121.144 176.121 118.046 185.409C114.947 194.697 107.535 212.035 107.535 212.035" stroke="black" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path><path d="M122.338 172.425C122.338 172.425 147.684 130.315 154.483 120.413C161.282 110.51 165.618 106.157 171.793 107.407C177.968 108.657 180.147 115.456 173.654 127.837C167.457 139.647 146.447 178.007 146.447 178.007" stroke="black" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path><path d="M173.654 127.837C173.654 127.837 183.234 106.782 192.814 110.817C201.88 114.622 197.763 126.29 193.132 135.897C188.5 145.503 169.318 189.773 169.318 189.773" stroke="black" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path><path d="M189.059 144.889C189.059 144.889 197.391 123.308 207.19 126.762C216.463 130.052 213.036 141.917 208.974 151.776C204.912 161.634 190.362 199.369 190.362 199.369" stroke="black" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path><path d="M104.404 155.394C103.9 155.394 110.02 158.234 113.371 152.302C115.779 148.036 115.221 143.628 111.181 140.239" stroke="black" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path><path d="M175.83 118.522C178.007 114.746 177.017 110.091 173.618 108.126C170.22 106.16 165.7 107.629 163.523 111.405C161.346 115.182 162.337 119.836 165.735 121.801C169.134 123.767 173.654 122.299 175.83 118.522Z" stroke="black" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path><path d="M196.044 122.064C198.221 118.287 197.231 113.633 193.832 111.667C190.433 109.702 185.914 111.17 183.737 114.947C181.56 118.723 182.55 123.378 185.949 125.343C189.347 127.308 193.867 125.84 196.044 122.064Z" stroke="black" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path><path d="M210.876 138.117C213.053 134.34 212.063 129.685 208.664 127.72C205.266 125.755 200.746 127.223 198.569 131C196.392 134.776 197.383 139.431 200.781 141.396C204.18 143.361 208.7 141.893 210.876 138.117Z" stroke="black" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path><path d="M222.455 158.989C223.697 155.082 221.851 151.004 218.331 149.881C214.81 148.758 210.949 151.014 209.707 154.921C208.464 158.828 210.311 162.905 213.831 164.029C217.351 165.152 221.212 162.895 222.455 158.989Z" stroke="black" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path><path d="M81.5317 215.774C81.5317 215.774 71.6781 200.301 80.6012 177.392C89.5244 154.484 92.6446 167.172 100.998 132.804C103.801 121.279 109.352 119.491 113.984 121.663C118.615 123.834 119.863 132.497 119.239 140.546" stroke="black" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path><path d="M122.951 148.585C122.951 148.585 139.374 118.866 145.209 107.714C151.045 96.5614 155.917 83.8078 163.756 85.1127C171.18 86.3519 173.03 92.8548 168.136 106.782" stroke="black" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path><path d="M170.249 99.9275C170.249 99.9275 175.658 83.5551 183.541 85.0684C191.424 86.5817 191.271 95.9029 187.559 111.08" stroke="black" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path><path d="M189.113 103.075C189.113 103.075 193.493 93.9622 202.405 98.4254C209.817 102.143 203.642 125.676 203.642 125.676" stroke="black" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path><path d="M205.044 118.57C205.958 117.137 207.284 116.015 208.848 115.353C210.412 114.692 212.14 114.521 213.803 114.864C220.438 116.256 220.92 124.733 219.376 133.747C217.832 142.761 216.277 148.606 216.277 148.606" stroke="black" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path><path d="M188.807 89.7509L214.459 53.8369L222.496 88.2047L273.506 67.7748L250.01 126.29L302.257 132.486L258.046 151.062L286.797 189.148L237.955 180.474L244.141 208.031L211.679 194.719" stroke="black" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
                 </div>
         </div>
-        <span class="gumroad-text">$6 Cheaper On <span class="g-logo-mark"><svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="28 163 504 74" xmlns="http://www.w3.org/2000/svg"><g fill-rule="nonzero" transform="matrix(2.27273 0 0 2.27273 30 165.913)"><path d="m130.762 0c-4.545 0-8.988 4.116-9.499 10.063v-9.572h-6.527v28.863h6.607v-13.971c0-3.913 2.774-9.434 9.419-9.434z"/><path d="m200.066 24.733v-19.775h3.827c5.103 0 9.25 3.19 9.25 9.729 0 6.538-4.147 10.046-9.25 10.046zm-6.539 4.625h11.164c6.857 0 15.309-4.465 15.309-14.671 0-10.047-8.452-14.194-15.309-14.194h-11.164z"/><path d="m168.509 15.006c0-5.263 2.711-9.569 7.176-9.569 4.306 0 6.698 4.306 6.698 9.569s-2.392 9.568-6.698 9.568c-4.465 0-7.176-4.305-7.176-9.568zm-6.698.319c0 8.611 4.465 14.672 11.482 14.672 5.103 0 8.133-3.349 9.728-8.772v8.134h6.537v-28.865h-6.537v7.654c-1.435-5.103-4.465-8.133-9.249-8.133-7.177 0-11.961 6.539-11.961 15.31z"/><path d="m12.918 29.997c-8.134 0-12.918-6.539-12.918-14.672 0-8.452 5.263-15.31 15.31-15.31 10.366 0 13.874 7.017 14.033 11.004h-7.495c-.159-2.233-2.073-5.582-6.698-5.582-4.944 0-8.133 4.306-8.133 9.569s3.189 9.568 8.133 9.568c4.465 0 6.379-3.508 7.177-7.017h-7.177v-2.87h15.059v14.672h-6.607v-9.25c-.478 3.349-2.551 9.888-10.684 9.888z"/><path d="m43.603 29.996c-6.219 0-10.047-4.146-10.047-12.439v-17.064h6.698v17.064c0 4.306 2.073 6.379 5.582 6.379 6.857 0 9.409-8.452 9.409-14.353v-9.09h6.698v28.865h-6.539v-10.685c-1.276 5.901-4.784 11.323-11.801 11.323z"/><path d="m101.968 0c-5.715 0-9.319 5.52-10.496 10.624-.201-6.84-3.565-10.624-8.947-10.624-4.65 0-8.964 4.147-10.084 10.707v-10.216h-6.53v28.866h6.613v-10.348c0-2.566 1.07-13.094 7.727-13.094 4.312 0 4.762 3.89 4.762 9.207v14.235h6.61v-10.348c0-2.566 1.114-13.094 7.771-13.094 4.309 0 4.754 3.89 4.754 9.207v14.235h6.619v-17.074c.03-8.191-2.862-12.283-8.799-12.283z"/><path d="m144.95 0c-8.561 0-14.362 6.713-14.362 14.998 0 9.13 5.517 14.998 14.362 14.998 8.561 0 14.465-6.712 14.465-14.998 0-9.129-5.624-14.998-14.465-14.998zm0 24.887c-4.984 0-8.212-4.219-8.212-9.889 0-5.669 3.239-9.889 8.212-9.889 4.972 0 8.082 4.22 8.082 9.889 0 5.67-3.113 9.889-8.082 9.889z"/></g></svg></span></span>
+        <span class="gumroad-text">Cheaper On <span class="g-logo-mark"><svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="28 163 504 74" xmlns="http://www.w3.org/2000/svg"><g fill-rule="nonzero" transform="matrix(2.27273 0 0 2.27273 30 165.913)"><path d="m130.762 0c-4.545 0-8.988 4.116-9.499 10.063v-9.572h-6.527v28.863h6.607v-13.971c0-3.913 2.774-9.434 9.419-9.434z"/><path d="m200.066 24.733v-19.775h3.827c5.103 0 9.25 3.19 9.25 9.729 0 6.538-4.147 10.046-9.25 10.046zm-6.539 4.625h11.164c6.857 0 15.309-4.465 15.309-14.671 0-10.047-8.452-14.194-15.309-14.194h-11.164z"/><path d="m168.509 15.006c0-5.263 2.711-9.569 7.176-9.569 4.306 0 6.698 4.306 6.698 9.569s-2.392 9.568-6.698 9.568c-4.465 0-7.176-4.305-7.176-9.568zm-6.698.319c0 8.611 4.465 14.672 11.482 14.672 5.103 0 8.133-3.349 9.728-8.772v8.134h6.537v-28.865h-6.537v7.654c-1.435-5.103-4.465-8.133-9.249-8.133-7.177 0-11.961 6.539-11.961 15.31z"/><path d="m12.918 29.997c-8.134 0-12.918-6.539-12.918-14.672 0-8.452 5.263-15.31 15.31-15.31 10.366 0 13.874 7.017 14.033 11.004h-7.495c-.159-2.233-2.073-5.582-6.698-5.582-4.944 0-8.133 4.306-8.133 9.569s3.189 9.568 8.133 9.568c4.465 0 6.379-3.508 7.177-7.017h-7.177v-2.87h15.059v14.672h-6.607v-9.25c-.478 3.349-2.551 9.888-10.684 9.888z"/><path d="m43.603 29.996c-6.219 0-10.047-4.146-10.047-12.439v-17.064h6.698v17.064c0 4.306 2.073 6.379 5.582 6.379 6.857 0 9.409-8.452 9.409-14.353v-9.09h6.698v28.865h-6.539v-10.685c-1.276 5.901-4.784 11.323-11.801 11.323z"/><path d="m101.968 0c-5.715 0-9.319 5.52-10.496 10.624-.201-6.84-3.565-10.624-8.947-10.624-4.65 0-8.964 4.147-10.084 10.707v-10.216h-6.53v28.866h6.613v-10.348c0-2.566 1.07-13.094 7.727-13.094 4.312 0 4.762 3.89 4.762 9.207v14.235h6.61v-10.348c0-2.566 1.114-13.094 7.771-13.094 4.309 0 4.754 3.89 4.754 9.207v14.235h6.619v-17.074c.03-8.191-2.862-12.283-8.799-12.283z"/><path d="m144.95 0c-8.561 0-14.362 6.713-14.362 14.998 0 9.13 5.517 14.998 14.362 14.998 8.561 0 14.465-6.712 14.465-14.998 0-9.129-5.624-14.998-14.465-14.998zm0 24.887c-4.984 0-8.212-4.219-8.212-9.889 0-5.669 3.239-9.889 8.212-9.889 4.972 0 8.082 4.22 8.082 9.889 0 5.67-3.113 9.889-8.082 9.889z"/></g></svg></span></span>
     </a>
 
     <div class="section">
@@ -393,31 +382,65 @@
         (function () {
             var banner = document.querySelector('.gumroad-banner');
             if (!banner) return;
-            var icons = Array.prototype.slice.call(banner.querySelectorAll('.g-icon'));
+            var icons = Array.prototype.slice.call(banner.querySelectorAll('.g-icon')).map(function (icon) {
+                return {
+                    el: icon,
+                    rot: icon.getAttribute('data-rot') + 'deg',
+                    depth: parseFloat(icon.getAttribute('data-depth')) || 1,
+                    curX: 0, curY: 0,
+                    targetX: 0, targetY: 0
+                };
+            });
 
-            function applyTransform(icon, dx, dy) {
-                var rot = icon.getAttribute('data-rot') + 'deg';
-                icon.style.transform = 'translate(calc(-50% + ' + dx + 'px), calc(-50% + ' + dy + 'px)) rotate(' + rot + ')';
+            var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            var ease = 0.08; // lower = smoother/laggier follow, higher = snappier
+            var settleThreshold = 0.02;
+            var raf = null;
+
+            function tick() {
+                var stillMoving = false;
+                icons.forEach(function (icon) {
+                    var dx = icon.targetX - icon.curX;
+                    var dy = icon.targetY - icon.curY;
+                    if (Math.abs(dx) > settleThreshold || Math.abs(dy) > settleThreshold) {
+                        stillMoving = true;
+                    }
+                    icon.curX += dx * ease;
+                    icon.curY += dy * ease;
+                    icon.el.style.transform = 'translate(calc(-50% + ' + icon.curX + 'px), calc(-50% + ' + icon.curY + 'px)) rotate(' + icon.rot + ')';
+                });
+                if (stillMoving) {
+                    raf = requestAnimationFrame(tick);
+                } else {
+                    raf = null;
+                }
             }
+
+            function ensureLoop() {
+                if (raf === null) {
+                    raf = requestAnimationFrame(tick);
+                }
+            }
+
+            function setTargets(relX, relY, strength) {
+                icons.forEach(function (icon) {
+                    icon.targetX = relX * strength * icon.depth;
+                    icon.targetY = relY * strength * icon.depth;
+                });
+                ensureLoop();
+            }
+
+            if (prefersReduced) return;
 
             banner.addEventListener('mousemove', function (e) {
                 var rect = banner.getBoundingClientRect();
                 var relX = (e.clientX - rect.left) / rect.width - 0.5;
                 var relY = (e.clientY - rect.top) / rect.height - 0.5;
-                icons.forEach(function (icon) {
-                    var depth = parseFloat(icon.getAttribute('data-depth')) || 1;
-                    var moveX = relX * 22 * depth;
-                    var moveY = relY * 22 * depth;
-                    icon.style.transition = 'transform .7s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-                    applyTransform(icon, moveX, moveY);
-                });
+                setTargets(relX, relY, 22);
             });
 
             banner.addEventListener('mouseleave', function () {
-                icons.forEach(function (icon) {
-                    icon.style.transition = 'transform 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-                    applyTransform(icon, 0, 0);
-                });
+                setTargets(0, 0, 22);
             });
 
             banner.addEventListener('touchstart', function (e) {
@@ -425,11 +448,11 @@
                 var rect = banner.getBoundingClientRect();
                 var relX = (touch.clientX - rect.left) / rect.width - 0.5;
                 var relY = (touch.clientY - rect.top) / rect.height - 0.5;
-                icons.forEach(function (icon) {
-                    var depth = parseFloat(icon.getAttribute('data-depth')) || 1;
-                    icon.style.transition = 'transform .7s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-                    applyTransform(icon, relX * 14 * depth, relY * 14 * depth);
-                });
+                setTargets(relX, relY, 14);
+            }, { passive: true });
+
+            banner.addEventListener('touchend', function () {
+                setTargets(0, 0, 14);
             }, { passive: true });
         })();
     </script>
